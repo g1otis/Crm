@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+    <ItemGroup>
+        <Compile Remove="Class1.cs" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Libraries\Libraries.csproj" />
+        <ProjectReference Include="..\CRM.Data\CRM.Data.csproj" />
+    </ItemGroup>
+</Project>
