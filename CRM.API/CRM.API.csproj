@@ -12,5 +12,8 @@
       <ProjectReference Include="..\CRM.Data\CRM.Data.csproj">
         <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
       </ProjectReference>
+      <ProjectReference Include="..\CRM.BusinessLogic\CRM.BusinessLogic.csproj">
+        <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+      </ProjectReference>
     </ItemGroup>
 </Project>

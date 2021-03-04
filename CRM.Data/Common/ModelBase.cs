@@ -10,10 +10,8 @@ namespace CRM.Data.Common
         public TId Id { get; set; }
 
         [Required]
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime? CreationUtc { get => CreationUtc; set => CreationUtc = value ?? DateTime.UtcNow; }
+        public DateTime? CreationUtc { get; set; } = DateTime.UtcNow;
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime? LastUpdateUtc { get => LastUpdateUtc; set => LastUpdateUtc = value; }
+        public DateTime? LastUpdateUtc { get; set; }
     }
 }

@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using CRM.UI.Data;
+using CRM.UI.BackEnd;
+using CRM.UI.Services;
 
 namespace CRM.UI
 {
@@ -29,6 +31,9 @@ namespace CRM.UI
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
+
+            services.AddHttpClient<BackEndApiClient>();
+            services.AddSingleton<CustomersService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

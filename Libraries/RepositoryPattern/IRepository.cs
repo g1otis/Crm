@@ -12,7 +12,7 @@ namespace Libraries.RepositoryPattern
         Task UpdateAsync(TEntity entity);
 
         Task<TEntity> GetAsync(TId id);
-        Task<IEnumerable<TEntity>> GetAsync(Expression<Func<TEntity, bool>> filter = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, string includeProperties = "");
+        Task<IQueryable<TEntity>> GetAsync();
 
         void Delete(TEntity entityToDelete);
         void Delete(TId id);

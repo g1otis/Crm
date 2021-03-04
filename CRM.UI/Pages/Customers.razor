@@ -1,0 +1,57 @@
+﻿@page "/customers"
+
+@using Services;
+@using CRM.Data.Models;
+
+@inject CustomersService CustomersService
+
+<h3>Customers</h3>
+
+@if (customers == null)
+{
+    <p><em>@message</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cust in customers)
+            {
+                <tr>
+                    <td>@cust.FirstName</td>
+                    <td>@cust.LastName</td>
+                    <td>@cust.Age</td>         
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<div>
+    <button class="btn btn-success" @onclick="OnInitializedAsync"><span class="oi oi-reload"></span></button>
+</div>
+
+@code {
+    private List<Customer> customers;
+    private string message = "Loading...";
+
+    protected override async Task OnInitializedAsync()
+    {
+        message = "Loading...";
+        try
+        {
+            customers = await CustomersService.GetAllAsync();
+        }
+        catch (Exception ex)
+        {
+            message = ex.Message;
+        }
+    }
+}
