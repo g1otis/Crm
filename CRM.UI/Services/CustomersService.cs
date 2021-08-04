@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using CRM.Data.Models;
 using CRM.UI.BackEnd;
+using CRM.UI.Models;
 
 namespace CRM.UI.Services
 {
@@ -17,6 +18,11 @@ namespace CRM.UI.Services
         public async Task<List<Customer>> GetAllAsync()
         {
             return await backEndApiClient.GetCustomersAsync();
+        }
+
+        public async Task RegisterAsync(CustomerRegistrationModel model)
+        {
+            await backEndApiClient.RegisterAsync(model);
         }
 
         public async Task<ServiceResult<List<Customer>>> GetAllResultAsync()

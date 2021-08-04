@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CRM.API.Models;
 using CRM.BusinessLogic;
 using CRM.Data.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -38,7 +39,7 @@ namespace CRM.API.Controllers
 
         // POST api/values
         [HttpPost]
-        [Route("CreateFake")]
+        [Route("createFake")]
         public async Task<IActionResult> CreateFakeAsync([FromQuery] string firstName, [FromQuery] string lastName)
         {
             var customer = await customerFetchingService.CreateAsync(new Customer
@@ -47,6 +48,22 @@ namespace CRM.API.Controllers
                 LastName = lastName,
                 EmailAddress = "g1otis.foo@gmail.com",
                 Age = 5
+            });
+
+            return Ok(customer);
+        }
+
+        // POST api/values
+        [HttpPost]
+        [Route("register")]
+        public async Task<IActionResult> RegisterAsync([FromBody] CustomerRegistrationModel model)
+        {
+            var customer = await customerFetchingService.CreateAsync(new Customer
+            {
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                EmailAddress = model.EmailAddress,
+                Age = model.Age,
             });
 
             return Ok(customer);

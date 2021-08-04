@@ -1,0 +1,41 @@
+﻿@page "/edit/{customerId:guid}"
+
+@using Services;
+@using CRM.Data.Models;
+
+@inject CustomersService CustomersService
+
+<h3>Edit Customer @CustomerId</h3>
+
+@if (Customer == null)
+{
+    <p>Error</p>
+}
+else
+{
+<form class="form">
+    <div class="form-group">
+        <label>First Name</label>
+        <input type="text" class="form-control" aria-describedby="firstNameHelp" placeholder="Enter first name" value="@Customer.FirstName">
+        <small id="firstNameHelp" class="form-text text-muted">Update customer's First name.</small>
+    </div>
+
+    <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" class="form-control" aria-describedby="lastNameHelp" placeholder="Enter last name" value="@Customer.LastName">
+        <small id="lastNameHelp" class="form-text text-muted">Update customer's Last name.</small>
+    </div>
+</form>
+}
+
+@code {
+    [Parameter]
+    public Guid CustomerId { get; set; }
+
+    public Customer Customer { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        Customer = (await CustomersService.GetAllAsync()).FirstOrDefault(c => c.Id == CustomerId);
+    }
+}

@@ -4,6 +4,7 @@
 @using CRM.Data.Models;
 
 @inject CustomersService CustomersService
+@inject NavigationManager NavigationManager
 
 <h3>Customers</h3>
 
@@ -19,6 +20,7 @@ else
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Age</th>
+                <th>Edit</th>
             </tr>
         </thead>
         <tbody>
@@ -27,7 +29,12 @@ else
                 <tr>
                     <td>@cust.FirstName</td>
                     <td>@cust.LastName</td>
-                    <td>@cust.Age</td>         
+                    <td>@cust.Age</td>
+                    <td>
+                       <button @onclick="() => NavigateToCustomerEditComponent(cust.Id)">
+                            <span class="oi oi-document"></span>
+                       </button>
+                    </td>
                 </tr>
             }
         </tbody>
@@ -41,6 +48,11 @@ else
 @code {
     private List<Customer> customers;
     private string message = "Loading...";
+
+    private void NavigateToCustomerEditComponent(Guid customerId)
+    {
+        NavigationManager.NavigateTo($"edit/{customerId}");
+    }
 
     protected override async Task OnInitializedAsync()
     {

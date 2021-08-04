@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "CRM.GRPC": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "http://localhost:41991",
+      "applicationUrl": "http://localhost:41991;https://localhost:40388",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

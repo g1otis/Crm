@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using CRM.Data.Models;
+using CRM.UI.Models;
 
 namespace CRM.UI.BackEnd
 {
@@ -24,7 +25,17 @@ namespace CRM.UI.BackEnd
 
             var response = await httpClient.GetAsync(customersPath);
 
-            return await response.EnsureSuccessStatusCode().Content.ReadFromJsonAsync<List<Customer>>() ?? Enumerable.Empty<Customer>().ToList();
+            List<Customer> customers = await response.EnsureSuccessStatusCode().Content.ReadFromJsonAsync<List<Customer>>() ?? Enumerable.Empty<Customer>().ToList();
+            return customers;
+        }
+
+        public async Task RegisterAsync(CustomerRegistrationModel model)
+        {
+            var customersPath = "customers/register";
+
+            var response = await httpClient.PostAsJsonAsync(customersPath, model);
+
+            response.EnsureSuccessStatusCode();
         }
     }
 }
