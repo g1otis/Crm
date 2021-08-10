@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using CustomerManagement.Domain.Common;
 using CustomerManagement.Domain.SeedWork;
 
-namespace CustomerManagement.Domain.Entities
+namespace CustomerManagement.Domain.Aggregates.CustomerAggregate
 {
     public class AddressType : Enumeration<AddressType.AddressTypeId>
     {
@@ -11,14 +11,14 @@ namespace CustomerManagement.Domain.Entities
         {
             [Display(Name = "Other")]
             Other,
-            [Display(Name = "Primary")]
-            Primary,
+            [Display(Name = "Home")]
+            Home,
             [Display(Name = "Work")]
             Work
         }
 
         public static AddressType Other = new AddressType(AddressTypeId.Other);
-        public static AddressType Primary = new AddressType(AddressTypeId.Primary);
+        public static AddressType Home = new AddressType(AddressTypeId.Home);
         public static AddressType Work = new AddressType(AddressTypeId.Work);
 
         public static IEnumerable<AddressType> GetAll() => GetAll<AddressType>();

@@ -1,7 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using CustomerManagement.Domain.Entities;
+using System.Linq;
+using CustomerManagement.Domain.Aggregates.CustomerAggregate;
 using Xunit;
-using static CustomerManagement.Domain.Entities.TelephoneType;
+using static CustomerManagement.Domain.Aggregates.CustomerAggregate.TelephoneType;
 
 namespace CustomerManagement.UnitTests.Domain.Entities
 {
@@ -13,6 +14,12 @@ namespace CustomerManagement.UnitTests.Domain.Entities
             var telephone = new Telephone(TelephoneTypeId.Other, "+555", "587585");
 
             Assert.IsAssignableFrom<Telephone>(telephone);
+        }
+
+        [Fact]
+        public void TelephoneType_GetAll_Succeeds()
+        {
+            Assert.Equal(4, TelephoneType.GetAll().Count());
         }
 
         [Fact]

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using CustomerManagement.Domain.Common;
 using CustomerManagement.Domain.SeedWork;
 
-namespace CustomerManagement.Domain.Entities
+namespace CustomerManagement.Domain.Aggregates.CustomerAggregate
 {
     public class Gender : Enumeration<Gender.GenderId>
     {

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using CustomerManagement.Domain.SeedWork;
-using static CustomerManagement.Domain.Entities.TelephoneType;
+using static CustomerManagement.Domain.Aggregates.CustomerAggregate.TelephoneType;
 
-namespace CustomerManagement.Domain.Entities
+namespace CustomerManagement.Domain.Aggregates.CustomerAggregate
 {
     public class Telephone : ValueObject
     {

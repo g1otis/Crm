@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using CustomerManagement.Domain.SeedWork;
-using static CustomerManagement.Domain.Entities.Gender;
+using static CustomerManagement.Domain.Aggregates.CustomerAggregate.Gender;
 
-namespace CustomerManagement.Domain.Entities
+namespace CustomerManagement.Domain.Aggregates.CustomerAggregate
 {
     public class Customer : EntityBase, IAggregateRoot, IValidatableObject
     {

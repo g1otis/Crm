@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using CustomerManagement.Domain.Common;
 using CustomerManagement.Domain.SeedWork;
 
-namespace CustomerManagement.Domain.Entities
+namespace CustomerManagement.Domain.Aggregates.CustomerAggregate
 {
     public class TelephoneType : Enumeration<TelephoneType.TelephoneTypeId>
     {
@@ -12,8 +12,8 @@ namespace CustomerManagement.Domain.Entities
             [Display(Name = "Other")]
             Other,
 
-            [Display(Name = "Primary")]
-            Primary,
+            [Display(Name = "Personal")]
+            Personal,
 
             [Display(Name = "Home")]
             Home,
@@ -23,7 +23,7 @@ namespace CustomerManagement.Domain.Entities
         }
 
         public static TelephoneType Other = new TelephoneType(TelephoneTypeId.Other);
-        public static TelephoneType Primary = new TelephoneType(TelephoneTypeId.Primary);
+        public static TelephoneType Personal = new TelephoneType(TelephoneTypeId.Personal);
         public static TelephoneType Home = new TelephoneType(TelephoneTypeId.Home);
         public static TelephoneType Work = new TelephoneType(TelephoneTypeId.Work);
 

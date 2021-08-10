@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using CustomerManagement.Domain.Entities;
+using CustomerManagement.Domain.Aggregates.CustomerAggregate;
 using Xunit;
 
 namespace CustomerManagement.UnitTests.Domain.Entities

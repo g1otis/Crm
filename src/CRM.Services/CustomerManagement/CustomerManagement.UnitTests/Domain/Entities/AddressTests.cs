@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using CustomerManagement.Domain.Entities;
+using System.Linq;
+using CustomerManagement.Domain.Aggregates.CustomerAggregate;
 using Xunit;
 
 namespace CustomerManagement.UnitTests.Domain.Entities
@@ -15,11 +16,17 @@ namespace CustomerManagement.UnitTests.Domain.Entities
         }
 
         [Fact]
+        public void AddressType_GetAll_Succeeds()
+        {
+            Assert.Equal(3, AddressType.GetAll().Count());
+        }
+
+        [Fact]
         public void Equals_Succeeds()
         {
             var address1 = new Address(AddressType.AddressTypeId.Other, "street name", "street number", "postal", "city", "GRE");
             var address2 = new Address(AddressType.AddressTypeId.Other, "street name", "street number", "postal", "city", "GRE");
-            var address3 = new Address(AddressType.AddressTypeId.Primary, "street", "number", "postal", "city", "GRE");
+            var address3 = new Address(AddressType.AddressTypeId.Home, "street", "number", "postal", "city", "GRE");
 
 #pragma warning disable CS1718 // Comparison made to same variable
             Assert.True(address1 == address1);

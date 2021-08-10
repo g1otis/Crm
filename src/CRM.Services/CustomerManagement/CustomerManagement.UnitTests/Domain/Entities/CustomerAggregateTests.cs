@@ -1,10 +1,10 @@
 ﻿using Xunit;
-using CustomerManagement.Domain.Entities;
+using CustomerManagement.Domain.Aggregates.CustomerAggregate;
 using System.ComponentModel.DataAnnotations;
-using static CustomerManagement.Domain.Entities.Gender;
+using static CustomerManagement.Domain.Aggregates.CustomerAggregate.Gender;
 using System;
-using static CustomerManagement.Domain.Entities.AddressType;
-using static CustomerManagement.Domain.Entities.TelephoneType;
+using static CustomerManagement.Domain.Aggregates.CustomerAggregate.AddressType;
+using static CustomerManagement.Domain.Aggregates.CustomerAggregate.TelephoneType;
 
 namespace CustomerManagement.UnitTests.Domain.Entities
 {
@@ -53,7 +53,7 @@ namespace CustomerManagement.UnitTests.Domain.Entities
         {
             var customer = new Customer("firstName", "middle", "lastName", GenderId.Male, 19, "test@mail.com");
             var address1 = new Address(AddressTypeId.Other, "a street name", "number", "122333", "manilla", "CYP");
-            var address2 = new Address(AddressTypeId.Primary, "a street name", "number", "122333", "manilla", "CYP");
+            var address2 = new Address(AddressTypeId.Home, "a street name", "number", "122333", "manilla", "CYP");
 
             customer.AddAddress(address1);
             Assert.Single(customer.Addresses);

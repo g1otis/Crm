@@ -1,5 +1,5 @@
-using System.Collections.Generic;
-using CustomerManagement.Domain.Entities;
+﻿using System.Collections.Generic;
+using CustomerManagement.Domain.Aggregates.CustomerAggregate;
 using Xunit;
 
 namespace UnitTests
