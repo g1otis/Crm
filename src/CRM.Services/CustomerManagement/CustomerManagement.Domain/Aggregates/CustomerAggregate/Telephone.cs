@@ -8,7 +8,7 @@ namespace CustomerManagement.Domain.Aggregates.CustomerAggregate
     public class Telephone : ValueObject
     {
         public TelephoneType TelephoneType { get; }
-        public TelephoneTypeId TelephoneTypeId { get; }
+        protected internal TelephoneTypeId TelephoneTypeId { get; }
 
         [Required]
         public string Extension { get; private set; }

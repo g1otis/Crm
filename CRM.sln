@@ -25,6 +25,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CustomerManagement", "CustomerManagement", "{7432A7B5-8074-4350-8568-B16D04961FCF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{37A65E5D-C5B3-4973-9283-9A75DFE70F0A}"
+	ProjectSection(SolutionItems) = preProject
+		src\CRM.Services\CustomerManagement\README.md = src\CRM.Services\CustomerManagement\README.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{47F9C818-61A2-45AA-8B97-87233A5A5BD8}"
 EndProject

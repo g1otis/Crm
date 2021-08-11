@@ -1,6 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
-
+﻿using System;
 namespace CustomerManagement.Domain.Aggregates.CustomerAggregate
 {
+    public interface ICustomerRepository
+    {
 
+    }
 }

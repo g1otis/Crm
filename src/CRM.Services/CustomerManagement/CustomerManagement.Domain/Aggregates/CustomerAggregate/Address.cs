@@ -8,7 +8,7 @@ namespace CustomerManagement.Domain.Aggregates.CustomerAggregate
     public class Address : ValueObject
     {
         public AddressType AddressType { get; }
-        public AddressTypeId AddressTypeId { get; }
+        protected internal AddressTypeId AddressTypeId { get; }
 
         [Required]
         public string StreetName { get; }

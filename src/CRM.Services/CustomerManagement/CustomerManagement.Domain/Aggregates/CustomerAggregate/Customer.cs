@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using CustomerManagement.Domain.Events;
 using CustomerManagement.Domain.SeedWork;
 using static CustomerManagement.Domain.Aggregates.CustomerAggregate.Gender;
 
@@ -54,6 +55,8 @@ namespace CustomerManagement.Domain.Aggregates.CustomerAggregate
             EmailAddress = emailAddress;
 
             Validator.ValidateObject(this, new ValidationContext(this), true);
+
+            AddDomainEvent(new CustomerRegisteredDomainEvent(this));
         }
 
         public Address AddAddress(Address address)
