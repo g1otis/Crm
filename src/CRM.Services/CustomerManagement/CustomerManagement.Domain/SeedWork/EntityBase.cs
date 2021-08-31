@@ -7,8 +7,8 @@ namespace CustomerManagement.Domain.SeedWork
     public abstract class EntityBase
     {
         int? _requestedHashCode;
-        int _Id;
-        public virtual int Id
+        Guid _Id;
+        public virtual Guid Id
         {
             get
             {
@@ -41,7 +41,7 @@ namespace CustomerManagement.Domain.SeedWork
 
         public bool IsTransient()
         {
-            return this.Id == default(Int32);
+            return this.Id == default;
         }
 
         public override bool Equals(object? obj)
