@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace CustomerManagement.Domain.SeedWork
 {
-    public abstract class Enumeration<TEnum> : IComparable where TEnum : Enum
+    public abstract class Enumeration<TEnum> : IComparable<Enumeration<TEnum>> where TEnum : Enum
     {
         public string Name { get; private set; }
 
@@ -64,7 +64,7 @@ namespace CustomerManagement.Domain.SeedWork
             return matchingItem;
         }
 
-        public int CompareTo(object? other) => other is Enumeration<TEnum> otherNum ? Id.CompareTo(otherNum.Id) : -1;
+        public int CompareTo(Enumeration<TEnum>? other) => -(other?.Id.CompareTo(Id)) ?? -1;
 
 
         #region EnumHelper

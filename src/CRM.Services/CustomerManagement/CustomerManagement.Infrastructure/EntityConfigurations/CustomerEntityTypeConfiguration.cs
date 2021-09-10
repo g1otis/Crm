@@ -1,4 +1,5 @@
-﻿using CustomerManagement.Domain.Aggregates.CustomerAggregate;
+﻿using System;
+using CustomerManagement.Domain.Aggregates.CustomerAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -16,8 +17,7 @@ namespace CustomerManagement.Infrastructure.EntityConfigurations
 
             builder.Ignore(c => c.DomainEvents);
 
-            builder.Property(c => c.Id)
-                .UseHiLo("CustomerSeq", CustomerManagementContext.DEFAULT_SCHEMA);
+            builder.Property(c => c.Id);
 
             builder.Property(c => c.Age);
 
@@ -49,8 +49,7 @@ namespace CustomerManagement.Infrastructure.EntityConfigurations
             {
                 // Explicit configuration of the shadow key property in the owned type 
                 // as a workaround for a documented issue in EF Core 5: https://github.com/dotnet/efcore/issues/20740
-                a.Property<int>("CustomerId")
-                    .UseHiLo("CustomerSeq", CustomerManagementContext.DEFAULT_SCHEMA);
+                a.Property<Guid>("CustomerId");
 
                 a.Property<AddressType.AddressTypeId>("AddressTypeId")
                     .UsePropertyAccessMode(PropertyAccessMode.Field)
@@ -58,7 +57,7 @@ namespace CustomerManagement.Infrastructure.EntityConfigurations
                     .IsRequired();
 
                 a.HasOne(addr => addr.AddressType)
-                    .WithOne()
+                    .WithMany()
                     .HasForeignKey("AddressTypeId");
 
                 a.Property(addr => addr.City)
@@ -81,8 +80,7 @@ namespace CustomerManagement.Infrastructure.EntityConfigurations
 
             builder.OwnsMany(c => c.Telephones, t =>
             {
-                t.Property<int>("CustomerId")
-                    .UseHiLo("CustomerSeq", CustomerManagementContext.DEFAULT_SCHEMA);
+                t.Property<Guid>("CustomerId");
 
                 t.Property<TelephoneType.TelephoneTypeId>("TelephoneTypeId")
                     .UsePropertyAccessMode(PropertyAccessMode.Field)
@@ -90,7 +88,7 @@ namespace CustomerManagement.Infrastructure.EntityConfigurations
                     .IsRequired();
 
                 t.HasOne(tel => tel.TelephoneType)
-                    .WithOne()
+                    .WithMany()
                     .HasForeignKey("TelephoneTypeId");
 
                 t.Property(tel => tel.Extension)

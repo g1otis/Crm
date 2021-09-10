@@ -17,9 +17,9 @@ namespace CustomerManagement.Domain.Aggregates.CustomerAggregate
         [Phone]
         public string Phone { get; private set; }
 
-        public Telephone(TelephoneTypeId type, string extension, string phone)
+        public Telephone(TelephoneTypeId telephoneTypeId, string extension, string phone)
         {
-            TelephoneTypeId = type;
+            TelephoneTypeId = telephoneTypeId;
             Extension = extension;
             Phone = phone;
 
