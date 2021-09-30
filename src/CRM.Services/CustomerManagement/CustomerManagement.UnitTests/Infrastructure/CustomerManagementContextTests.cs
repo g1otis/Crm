@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using CustomerManagement.Infrastructure;
+using CustomerManagement.Domain.Aggregates.CustomerAggregate;
 using Microsoft.EntityFrameworkCore;
 using Xunit;
 
@@ -13,8 +14,7 @@ namespace CustomerManagement.UnitTests.Infrastructure
         {
             var options = new DbContextOptionsBuilder<CustomerManagementContext>()
                 .UseInMemoryDatabase(System.Guid.NewGuid().ToString())
-                    //.UseSqlite("Filename=Test.db")
-                    .Options;
+                .Options;
 
             context = new CustomerManagementContext(options);
         }
@@ -23,19 +23,28 @@ namespace CustomerManagement.UnitTests.Infrastructure
         public void EnsureCreated_Succeeds()
         {
             context.Database.EnsureCreated();
-
-            context.AddressTypes.Add(new CustomerManagement.Domain.Aggregates.CustomerAggregate.AddressType(CustomerManagement.Domain.Aggregates.CustomerAggregate.AddressType.AddressTypeId.Other));
-            context.SaveChanges();
-            Assert.Equal(1, context.AddressTypes.Count());
         }
 
         [Fact]
-        public void MyTest()
+        public void AddAddressType_Succeeds()
         {
-            context.AddressTypes.Add(new CustomerManagement.Domain.Aggregates.CustomerAggregate.AddressType(CustomerManagement.Domain.Aggregates.CustomerAggregate.AddressType.AddressTypeId.Other));
+            context.AddressTypes.Add(new AddressType(AddressType.AddressTypeId.Other));
             context.SaveChanges();
 
-            Assert.Equal(1, context.AddressTypes.Count());
+            var addressType = context.AddressTypes.First();
+            Assert.Equal(AddressType.AddressTypeId.Other, addressType.Id);
+            Assert.Equal("Other", addressType.Name);
+        }
+
+        [Fact]
+        public void AddTelephoneType_Succeeds()
+        {
+            context.TelephoneTypes.Add(new TelephoneType(TelephoneType.TelephoneTypeId.Other));
+            context.SaveChanges();
+
+            var telephoneType = context.TelephoneTypes.First();
+            Assert.Equal(TelephoneType.TelephoneTypeId.Other, telephoneType.Id);
+            Assert.Equal("Other", telephoneType.Name);
         }
     }
 }
