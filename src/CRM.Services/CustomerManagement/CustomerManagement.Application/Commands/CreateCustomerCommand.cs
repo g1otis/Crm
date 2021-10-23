@@ -1,0 +1,50 @@
+﻿using System;
+using System.Collections.Generic;
+using CustomerManagement.Domain.Aggregates.CustomerAggregate;
+using MediatR;
+
+namespace CustomerManagement.Application.Commands
+{
+    public record CreateCustomerCommand : IRequest<Guid>
+    {
+        public string FirstName { get; init; }
+
+        public string? MiddleName { get; init; }
+
+        public string LastName { get; init; }
+
+        public Gender Gender { get; init; }
+
+        public int Age { get; init; }
+
+        public string EmailAddress { get; init; }
+
+        public List<AddressDto> Addresses { get; init; }
+
+        public List<TelephoneDto> Telephones { get; init; }
+    }
+
+    public record AddressDto
+    {
+        public AddressType AddressType { get; init; }
+
+        public string StreetName { get; init; }
+
+        public string StreetNumber { get; init; }
+
+        public string PostalCode { get; init; }
+
+        public string City { get; init; }
+
+        public string CountryISO3 { get; init; }
+    }
+
+    public record TelephoneDto
+    {
+        public TelephoneType TelephoneType { get; }
+
+        public string Extension { get; private set; }
+
+        public string Phone { get; private set; }
+    }
+}
