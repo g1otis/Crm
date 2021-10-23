@@ -11,7 +11,7 @@ namespace CustomerManagement.Infrastructure.Repositories
         protected readonly DbContext _dbContext;
         protected readonly DbSet<TEntity> _dbSet;
 
-        public abstract IUnitOfWork UnitOfWork();
+        public abstract IUnitOfWork UnitOfWork { get; }
 
         public RepositoryBase(DbContext dbContext)
         {

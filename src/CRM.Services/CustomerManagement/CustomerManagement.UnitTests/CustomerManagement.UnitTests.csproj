@@ -24,15 +24,20 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.9" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
+    <PackageReference Include="Moq" Version="4.16.1" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Domain\" />
     <Folder Include="Domain\Entities\" />
     <Folder Include="Infrastructure\" />
+    <Folder Include="Application\" />
+    <Folder Include="Application\CommandHandlers\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CustomerManagement.Domain\CustomerManagement.Domain.csproj" />
     <ProjectReference Include="..\CustomerManagement.Infrastructure\CustomerManagement.Infrastructure.csproj" />
+    <ProjectReference Include="..\CustomerManagement.Application\CustomerManagement.Application.csproj" />
   </ItemGroup>
 </Project>

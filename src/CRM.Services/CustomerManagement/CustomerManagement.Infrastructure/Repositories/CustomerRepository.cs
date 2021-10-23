@@ -14,6 +14,6 @@ namespace CustomerManagement.Infrastructure.Repositories
 
         }
 
-        public override IUnitOfWork UnitOfWork() => _context;
+        public override IUnitOfWork UnitOfWork => _context;
     }
 }
