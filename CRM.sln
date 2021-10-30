@@ -61,6 +61,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBusServiceBus", "src\B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationEventLogEF", "src\BuildingBlocks\EventBus\IntegrationEventLogEF\IntegrationEventLogEF.csproj", "{510A68E8-5722-4670-A45E-C86C47813EF9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBusStub", "src\BuildingBlocks\EventBus\EventBusStub\EventBusStub.csproj", "{FAC9C449-D295-4ED2-B29C-441B4D0EAE47}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -147,6 +149,10 @@ Global
 		{510A68E8-5722-4670-A45E-C86C47813EF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{510A68E8-5722-4670-A45E-C86C47813EF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{510A68E8-5722-4670-A45E-C86C47813EF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAC9C449-D295-4ED2-B29C-441B4D0EAE47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAC9C449-D295-4ED2-B29C-441B4D0EAE47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAC9C449-D295-4ED2-B29C-441B4D0EAE47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAC9C449-D295-4ED2-B29C-441B4D0EAE47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
@@ -176,5 +182,6 @@ Global
 		{8CD1BA71-64F9-4CC3-A617-548031E33F17} = {667DDA58-7A69-4024-9281-D07568543869}
 		{30728950-266E-4227-A611-0F9DC59BE2D8} = {667DDA58-7A69-4024-9281-D07568543869}
 		{510A68E8-5722-4670-A45E-C86C47813EF9} = {667DDA58-7A69-4024-9281-D07568543869}
+		{FAC9C449-D295-4ED2-B29C-441B4D0EAE47} = {667DDA58-7A69-4024-9281-D07568543869}
 	EndGlobalSection
 EndGlobal

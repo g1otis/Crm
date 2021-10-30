@@ -9,7 +9,8 @@
     <Folder Include="CommandHandlers\" />
     <Folder Include="IntegrationEvents\" />
     <Folder Include="IntegrationEvents\Events\" />
-    <Folder Include="IntegrationEvents\EventHandling\" />
+    <Folder Include="IntegrationEvents\EventHandlers\" />
+    <Folder Include="Validations\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MediatR" Version="9.0.0" />
@@ -18,5 +19,6 @@
   <ItemGroup>
     <ProjectReference Include="..\CustomerManagement.Domain\CustomerManagement.Domain.csproj" />
     <ProjectReference Include="..\..\..\BuildingBlocks\EventBus\EventBus\EventBus.csproj" />
+    <ProjectReference Include="..\CustomerManagement.Infrastructure\CustomerManagement.Infrastructure.csproj" />
   </ItemGroup>
 </Project>

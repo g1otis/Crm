@@ -1,4 +1,8 @@
-﻿using CustomerManagement.Application.Commands;
+﻿// Licensed to the .NET Foundation under one or more agreements.
+// The .NET Foundation licenses this file to you under the MIT license.
+// See the LICENSE file in the project root for more information.
+
+using CustomerManagement.Application.Commands;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -11,15 +15,16 @@ using System;
 namespace CustomerManagement.API.Controllers
 {
     [Route("api/v1/[controller]")]
-    [Authorize]
+    //[Authorize]
     public class CustomersController : Controller
     {
         private readonly ILogger<CustomersController> _logger;
         private readonly IMediator _mediator;
 
-        public CustomersController(ILogger<CustomersController> logger)
+        public CustomersController(ILogger<CustomersController> logger, IMediator mediator)
         {
             _logger = logger;
+            _mediator = mediator;
         }
 
         // GET api/v1/customers/create

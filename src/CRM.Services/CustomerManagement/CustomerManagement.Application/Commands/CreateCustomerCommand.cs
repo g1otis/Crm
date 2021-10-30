@@ -43,8 +43,8 @@ namespace CustomerManagement.Application.Commands
     {
         public TelephoneType TelephoneType { get; }
 
-        public string Extension { get; private set; }
+        public string Extension { get; init; }
 
-        public string Phone { get; private set; }
+        public string Phone { get; init; }
     }
 }
