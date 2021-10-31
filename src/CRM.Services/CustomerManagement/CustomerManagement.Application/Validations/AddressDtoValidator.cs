@@ -4,9 +4,9 @@ using FluentValidation;
 
 namespace CustomerManagement.Application.Validations
 {
-    public class AddressDtoValidator : AbstractValidator<AddressDto>
+    public class AddressValidator : AbstractValidator<AddressDto>
     {
-        public AddressDtoValidator()
+        public AddressValidator()
         {
             RuleFor(a => a.AddressType).SetValidator(new AddressTypeValidator());
             RuleFor(a => a.City).NotEmpty();

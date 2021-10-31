@@ -41,7 +41,7 @@ namespace CustomerManagement.Application.Commands
 
     public record TelephoneDto
     {
-        public TelephoneType TelephoneType { get; }
+        public TelephoneType TelephoneType { get; init; }
 
         public string Extension { get; init; }
 

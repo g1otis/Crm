@@ -8,7 +8,7 @@ namespace CustomerManagement.Application.Validations
     {
         public CreateCustomerCommandValidator()
         {
-            var addressValidator = new AddressDtoValidator();
+            var addressValidator = new AddressValidator();
             var telephoneValidator = new TelephoneValidator();
 
             RuleFor(c => c.Addresses).ForEach(a => a.SetValidator(addressValidator));
