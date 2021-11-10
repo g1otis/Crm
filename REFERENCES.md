@@ -38,3 +38,5 @@
 - https://github.com/dotnet/EntityFramework.Docs/tree/main/samples/core/Miscellaneous/Testing/ItemsWebApi/Tests
 
 
+## Blazor
+- https://www.telerik.com/blogs/how-to-pass-arguments-to-your-onclick-functions-blazor
