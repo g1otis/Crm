@@ -13,9 +13,9 @@ namespace CustomerManagement.Application.Validations
 
             RuleFor(c => c.Addresses).ForEach(a => a.SetValidator(addressValidator));
             RuleFor(c => c.Age).GreaterThan(0);
-            RuleFor(c => c.EmailAddress).EmailAddress();
+            RuleFor(c => c.EmailAddress).NotEmpty().EmailAddress();
             RuleFor(c => c.FirstName).NotEmpty();
-            RuleFor(c => c.Gender).SetValidator(new GenderValidator());
+            RuleFor(c => c.GenderId).SetValidator(new GenderValidator());
             RuleFor(c => c.LastName).NotEmpty();
             RuleFor(c => c.Telephones).ForEach(t => t.SetValidator(telephoneValidator));
         }

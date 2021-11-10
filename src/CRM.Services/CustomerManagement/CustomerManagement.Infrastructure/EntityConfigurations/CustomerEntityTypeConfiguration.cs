@@ -29,14 +29,15 @@ namespace CustomerManagement.Infrastructure.EntityConfigurations
             builder.Property(c => c.FirstName)
                 .HasMaxLength(stringsMaxLength);
 
-            builder.Property<Gender.GenderId>("_genderId")
-                .UsePropertyAccessMode(PropertyAccessMode.Field)
-                .HasColumnName("GenderId")
+            //builder.Property<Gender.GenderId>("_genderId")
+            //    .UsePropertyAccessMode(PropertyAccessMode.Field)
+            //    .HasColumnName("GenderId")
+            //    .IsRequired();
+            builder.HasOne(c => c.Gender)
+                .WithMany(g => g.Customers)
+                .HasForeignKey(c => c.GenderId)
                 .IsRequired();
 
-            builder.HasOne(c => c.Gender)
-                .WithMany()
-                .HasForeignKey("_genderId");
 
             builder.Property(c => c.LastName)
                 .HasMaxLength(stringsMaxLength);

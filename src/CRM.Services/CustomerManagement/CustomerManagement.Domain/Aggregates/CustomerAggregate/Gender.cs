@@ -27,5 +27,6 @@ namespace CustomerManagement.Domain.Aggregates.CustomerAggregate
         {
         }
 
+        public List<Customer> Customers { get; set; }
     }
 }

@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
+using CustomerManagement.Application.Queries;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -20,11 +21,13 @@ namespace CustomerManagement.API.Controllers
     {
         private readonly ILogger<CustomersController> _logger;
         private readonly IMediator _mediator;
+        private readonly ICustomerQueries _customerQueries;
 
-        public CustomersController(ILogger<CustomersController> logger, IMediator mediator)
+        public CustomersController(ILogger<CustomersController> logger, IMediator mediator, ICustomerQueries customerQueries)
         {
-            _logger = logger;
-            _mediator = mediator;
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+            _customerQueries = customerQueries ?? throw new ArgumentNullException(nameof(customerQueries));
         }
 
         // GET api/v1/customers/create
@@ -37,6 +40,15 @@ namespace CustomerManagement.API.Controllers
                 command);
 
             return await _mediator.Send(command);
+        }
+
+        [Route("customerId:Guid")]
+        [HttpGet]
+        public async Task<ActionResult> GetCustomerAsync(Guid customerId)
+        {
+            var c = await _customerQueries.GetCustomer(customerId);
+
+            return Ok(c);
         }
     }
 }

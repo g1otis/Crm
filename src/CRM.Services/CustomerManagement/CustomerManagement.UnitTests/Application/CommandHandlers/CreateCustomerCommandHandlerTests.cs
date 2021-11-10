@@ -41,7 +41,7 @@ namespace CustomerManagement.UnitTests.Application.CommandHandlers
                 Age = 18,
                 EmailAddress = "emma@sdsd.com",
                 FirstName = "Panos",
-                Gender = Gender.Male,
+                GenderId = Gender.Male.Id,
                 LastName = "Foullis",
                 Addresses = new List<AddressDto> { },
                 Telephones = new List<TelephoneDto> { }

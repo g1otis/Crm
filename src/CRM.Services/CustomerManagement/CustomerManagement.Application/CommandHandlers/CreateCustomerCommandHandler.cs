@@ -27,9 +27,9 @@ namespace CustomerManagement.Application.CommandHandlers
         {
             _logger.LogInformation("Adding customer...");
 
-            var customer = new Customer(request.FirstName, request.MiddleName, request.LastName, request.Gender.Id, request.Age, request.EmailAddress);
+            var customer = new Customer(request.FirstName, request.MiddleName, request.LastName, request.GenderId, request.Age, request.EmailAddress);
 
-            request.Addresses?.ForEach(a => customer.AddAddress(new Address(a.AddressType.Id, a.StreetName, a.StreetNumber, a.PostalCode, a.City, a.CountryISO3)));
+            request.Addresses?.ForEach(a => customer.AddAddress(new Address(a.AddressType.Id, a.StreetName, a.StreetNumber, a.PostalCode, a.City, a.CountryIso3)));
             request.Telephones?.ForEach(t => customer.AddTelephone(new Telephone(t.TelephoneType.Id, t.Extension, t.Phone)));
 
             var created = await _customerRepository.AddAsync(customer);

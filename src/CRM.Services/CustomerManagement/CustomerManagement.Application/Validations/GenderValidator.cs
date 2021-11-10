@@ -1,13 +1,13 @@
-﻿using CustomerManagement.Domain.Aggregates.CustomerAggregate;
-using FluentValidation;
+﻿using FluentValidation;
+using static CustomerManagement.Domain.Aggregates.CustomerAggregate.Gender;
 
 namespace CustomerManagement.Application.Validations
 {
-    public class GenderValidator : AbstractValidator<Gender>
+    public class GenderValidator : AbstractValidator<GenderId>
     {
         public GenderValidator()
         {
-            RuleFor(g => g.Id).IsInEnum();
+            RuleFor(gId => gId).IsInEnum();
         }
     }
 }

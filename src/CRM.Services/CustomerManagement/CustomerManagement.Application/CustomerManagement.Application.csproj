@@ -11,6 +11,7 @@
     <Folder Include="IntegrationEvents\Events\" />
     <Folder Include="IntegrationEvents\EventHandlers\" />
     <Folder Include="Validations\" />
+    <Folder Include="Queries\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MediatR" Version="9.0.0" />

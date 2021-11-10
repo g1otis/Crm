@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using CustomerManagement.Domain.Aggregates.CustomerAggregate;
 using MediatR;
+using static CustomerManagement.Domain.Aggregates.CustomerAggregate.Gender;
 
 namespace CustomerManagement.Application.Commands
 {
@@ -13,7 +14,7 @@ namespace CustomerManagement.Application.Commands
 
         public string LastName { get; init; }
 
-        public Gender Gender { get; init; }
+        public GenderId GenderId { get; init; }
 
         public int Age { get; init; }
 
@@ -36,7 +37,7 @@ namespace CustomerManagement.Application.Commands
 
         public string City { get; init; }
 
-        public string CountryISO3 { get; init; }
+        public string CountryIso3 { get; init; }
     }
 
     public record TelephoneDto

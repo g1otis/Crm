@@ -20,7 +20,7 @@ namespace CustomerManagement.Domain.Aggregates.CustomerAggregate
         public string LastName { get; } = null!;
 
         public Gender Gender { get; }
-        private GenderId _genderId;
+        public GenderId GenderId { get; set; }
 
         [Range(18, 120)]
         public int Age { get; set; }
@@ -50,7 +50,7 @@ namespace CustomerManagement.Domain.Aggregates.CustomerAggregate
             FirstName = firstName;
             MiddleName = middleName;
             LastName = lastName;
-            _genderId = gender;
+            GenderId = gender;
             Age = age;
             EmailAddress = emailAddress;
 

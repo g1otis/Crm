@@ -29,9 +29,10 @@ namespace CustomerManagement.Infrastructure
 
         public CustomerManagementContext(DbContextOptions<CustomerManagementContext> options) : base(options)
         {
+
         }
 
-        public CustomerManagementContext(DbContextOptions<CustomerManagementContext> options, IMediator mediator) : base(options)
+        public CustomerManagementContext(DbContextOptions<CustomerManagementContext> options, IMediator mediator) : this(options)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
 

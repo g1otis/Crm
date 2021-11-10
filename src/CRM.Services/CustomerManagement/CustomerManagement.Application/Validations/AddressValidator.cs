@@ -10,7 +10,7 @@ namespace CustomerManagement.Application.Validations
         {
             RuleFor(a => a.AddressType).SetValidator(new AddressTypeValidator());
             RuleFor(a => a.City).NotEmpty();
-            RuleFor(a => a.CountryISO3).NotNull().Length(3);
+            RuleFor(a => a.CountryIso3).NotNull().Length(3);
             RuleFor(a => a.PostalCode).NotEmpty();
             RuleFor(a => a.StreetName).NotEmpty();
             RuleFor(a => a.StreetNumber).NotEmpty();

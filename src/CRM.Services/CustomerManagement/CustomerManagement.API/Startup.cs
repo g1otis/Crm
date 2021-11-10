@@ -1,7 +1,9 @@
 using System;
+using System.Reflection;
 using CustomerManagement.API.PipelineBehaviors;
 using CustomerManagement.Application.Commands;
 using CustomerManagement.Application.IntegrationEvents;
+using CustomerManagement.Application.Queries;
 using CustomerManagement.Domain.Aggregates.CustomerAggregate;
 using CustomerManagement.Infrastructure;
 using CustomerManagement.Infrastructure.Repositories;
@@ -32,9 +34,25 @@ namespace CustomerManagement.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<CustomerManagementContext>(options => options.UseInMemoryDatabase(Guid.NewGuid().ToString()));
+            var databaseName = Guid.NewGuid().ToString();
+
+            //services.AddDbContext<CustomerManagementContext>(options =>
+            //{
+            //    options.UseInMemoryDatabase(databaseName);
+            //});
+            services.AddDbContext<CustomerManagementContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("CustomerManagementService"),
+                    sqlOptions =>
+                    {
+
+                        sqlOptions.MigrationsAssembly(typeof(Startup).GetTypeInfo().Assembly.GetName().Name);
+                    });
+            });
 
             services.AddScoped<IEventBus, EventBusStubImpl>();
+
+            services.AddScoped<ICustomerQueries, CustomerQueries>();
 
             services.AddScoped<ICustomerIntegrationEventService, CustomerIntegrationEventService>();
 
