@@ -16,6 +16,10 @@
 - https://www.youtube.com/watch?v=MIJJCR3ndQQ
 
 
+## Docker Images
+- [SQL Server Conmtainer on Linux](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-bash)
+
+
 ## EF Core
 - https://docs.microsoft.com/en-us/ef/core/dbcontext-configuration/
 - https://docs.microsoft.com/en-us/ef/core/modeling/relationships?tabs=fluent-api%2Cfluent-api-simple-key%2Csimple-key
