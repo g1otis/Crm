@@ -3,6 +3,3 @@
 [![codecov](https://codecov.io/gh/g1otis/Crm/branch/master/graph/badge.svg?token=8P3D1Q6OE0)](https://codecov.io/gh/g1otis/Crm)
 
 
-
-
-DOcker db pass: d0tN3tCl3@nArch1t3ctur3
