@@ -45,8 +45,7 @@ namespace CustomerManagement.API
                 options.UseSqlServer(Configuration.GetConnectionString("CustomerManagementService"),
                     sqlOptions =>
                     {
-
-                        sqlOptions.MigrationsAssembly(typeof(Startup).GetTypeInfo().Assembly.GetName().Name);
+                        //sqlOptions.MigrationsAssembly(typeof(Startup).GetTypeInfo().Assembly.GetName().Name);
                     });
             });
 

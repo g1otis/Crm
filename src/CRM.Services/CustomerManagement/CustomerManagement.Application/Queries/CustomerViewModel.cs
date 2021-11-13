@@ -11,7 +11,7 @@ namespace CustomerManagement.Application.Queries
         AddressViewModel? Address,
         TelephoneViewModel? Telephone);
 
-    public record EnumViewModel<T>(T type, string Descriotion) where T : Enum;
+    public record EnumViewModel<T>(T type, string Description) where T : Enum;
 
     public record AddressViewModel(EnumViewModel<AddressType> Type, string StreetName, string StreetNumber, string PostalCode, string City, string CountryIso3);
 
